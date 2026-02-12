@@ -5,8 +5,6 @@
  * @param {Object} b - второй объект
  * @return {Object} - объект имеющий уникальные свойства и значения
 */
-
-
 const findUniqueProperties = (a, b) => {
     const ans = {};
     for (const el in a) {
