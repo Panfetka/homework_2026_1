@@ -29,26 +29,27 @@ QUnit.module("Тестируем функцию findUniqueProperties", function(
     });
 
     QUnit.test("Работает правильно для пустых объектов", function(assert) {
-    const result = findUniqueProperties(
-    {},
-    {}
-    );
-    assert.deepEqual(result, {}, "Два пустых объекта должны вернуть пустой объект");
+        const result = findUniqueProperties(
+        {},
+        {}
+        );
+        assert.deepEqual(result, {}, "Два пустых объекта должны вернуть пустой объект");
+    });
 
     QUnit.test("Работает прпавильно для случаев где один из объектов пустой", function(assert) {
-    assert.deepEqual(
-        findUniqueProperties(
-        { a: 1, b: 2 }, {}
-        ),
-        { a: 1, b: 2 },
-        "Второй объект пустой должен вернутоь все свойства первого"
-    );
-    assert.deepEqual(
-        findUniqueProperties(
-        {}, { x: 10, y: 20 }
-        ),
-        { x: 10, y: 20 },
-        "Первый объект пустой должен вернуть все свойства второго"
-         );
+        assert.deepEqual(
+            findUniqueProperties(
+            { a: 1, b: 2 }, {}
+            ),
+            { a: 1, b: 2 },
+            "Второй объект пустой должен вернутоь все свойства первого"
+        );
+        assert.deepEqual(
+            findUniqueProperties(
+            {}, { x: 10, y: 20 }
+            ),
+            { x: 10, y: 20 },
+            "Первый объект пустой должен вернуть все свойства второго"
+        );
     });
 });
