@@ -10,7 +10,7 @@ QUnit.module("Тестируем функцию findUniqueProperties", function(
         assert.deepEqual(result, { a: 1, d: 5 }, "Должны быть уникальные свойства из обоих объектов.");
     });
 
-    QUnit.test("Работает правильно для объекты с отсутствующими свойствами", function(assert) {
+    QUnit.test("Работает правильно для объектов с отсутствующими свойствами", function(assert) {
         const result = findUniqueProperties(
             { x: 10, y: 20 },
             { y: 20, z: 30 }
@@ -29,27 +29,21 @@ QUnit.module("Тестируем функцию findUniqueProperties", function(
     });
 
     QUnit.test("Работает правильно для пустых объектов", function(assert) {
-        const result = findUniqueProperties(
-        {},
-        {}
-        );
+        const result = findUniqueProperties({}, {});
         assert.deepEqual(result, {}, "Два пустых объекта должны вернуть пустой объект");
     });
 
-    QUnit.test("Работает прпавильно для случаев где один из объектов пустой", function(assert) {
+    QUnit.test("Работает правильно, когда один из объектов пустой", function(assert) {
         assert.deepEqual(
-            findUniqueProperties(
-            { a: 1, b: 2 }, {}
-            ),
+            findUniqueProperties({ a: 1, b: 2 }, {}),
             { a: 1, b: 2 },
-            "Второй объект пустой должен вернутоь все свойства первого"
+            "Второй объект пустой — должен вернуть все свойства первого"
         );
+
         assert.deepEqual(
-            findUniqueProperties(
-            {}, { x: 10, y: 20 }
-            ),
+            findUniqueProperties({}, { x: 10, y: 20 }),
             { x: 10, y: 20 },
-            "Первый объект пустой должен вернуть все свойства второго"
+            "Первый объект пустой — должен вернуть все свойства второго"
         );
     });
 });
